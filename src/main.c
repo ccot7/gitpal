@@ -173,7 +173,7 @@ static void repl(const GpConfig *cfg)
 
 /* ── usage / version ────────────────────────────────────────────────────── */
 
-#define GITPAL_VERSION "1.0.0"
+#define GITPAL_VERSION "1.4.0"
 
 static void print_usage(void)
 {

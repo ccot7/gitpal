@@ -38,7 +38,9 @@ static int enable_raw(void)
 {
     if (!isatty(STDIN_FILENO)) return -1;
     if (tcgetattr(STDIN_FILENO, &orig_termios) < 0) return -1;
-    atexit(disable_raw);
+    /* register cleanup only once */
+    static int registered = 0;
+    if (!registered) { atexit(disable_raw); registered = 1; }
     struct termios raw = orig_termios;
     raw.c_iflag &= (tcflag_t)~(IXON | ICRNL | BRKINT | INPCK | ISTRIP);
     raw.c_oflag &= (tcflag_t)~(OPOST);
