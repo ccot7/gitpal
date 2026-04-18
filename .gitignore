@@ -1,0 +1,21 @@
+# build outputs
+gitpal
+src/*.o
+
+# make curl probe temp file
+/tmp/_gp_curl_probe.c
+
+# macOS
+.DS_Store
+.DS_Store?
+
+# editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.orig
+
+# unused scaffold (safe to delete entirely)
+{src,data}/
