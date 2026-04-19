@@ -1,4 +1,4 @@
-# gitpal — terminal git companion
+# gitpal - terminal git companion
 
 Answers git questions instantly in plain English. No googling, no man pages.
 
@@ -17,25 +17,25 @@ $ gitpal "force push safely"
   git push --force-with-lease
 ```
 
-Works offline by default — built-in reference of ~190 entries compiled into the binary. Falls back to an AI backend only when local confidence is low, or on demand.
+Works offline by default - built-in reference of ~190 entries compiled into the binary. Falls back to an AI backend only when local confidence is low, or on demand.
 
 ---
 
 ## Why
 
-Git is powerful but hard to recall under pressure. gitpal lets you describe intent in plain English and shows the exact command instantly — no guesswork, no context switching.
+Git is powerful but hard to recall under pressure. gitpal lets you describe intent in plain English and shows the exact command instantly - no guesswork, no context switching.
 
 ---
 
 ## Features
 
-- **Zero-latency local lookup** — no API, no network, no delay. Fuzzy keyword search over a comprehensive git reference compiled into the binary
-- **AI fallback — only when needed** — activates automatically when local confidence is low, or on demand with `/ai`
-- **Repo-aware AI context** — branch, status, recent log, and in-progress merge/rebase state are injected into every AI query automatically
-- **Verbose mode** — shows the git commands gitpal runs internally to read your repo; great for learning git itself
-- **Interactive REPL + one-shot** — use inline or as a persistent session with arrow-key history
-- **OpenAI-compatible** — works with Claude, OpenAI, Ollama (local/offline), Groq, Mistral, or any OpenAI-compatible endpoint
-- **Zero runtime deps** beyond libcurl (optional — AI disabled if absent)
+- **Zero-latency local lookup** - no API, no network, no delay. Fuzzy keyword search over a comprehensive git reference compiled into the binary
+- **AI fallback - only when needed** - activates automatically when local confidence is low, or on demand with `/ai`
+- **Repo-aware AI context** - branch, status, recent log, and in-progress merge/rebase state are injected into every AI query automatically
+- **Verbose mode** - shows the git commands gitpal runs internally to read your repo; great for learning git itself
+- **Interactive REPL + one-shot** - use inline or as a persistent session with arrow-key history
+- **OpenAI-compatible** - works with Claude, OpenAI, Ollama (local/offline), Groq, Mistral, or any OpenAI-compatible endpoint
+- **Zero runtime deps** beyond libcurl (optional - AI disabled if absent)
 - Builds clean under `-Wall -Wextra -Wpedantic` on GCC and clang, Linux and macOS
 
 ---
@@ -80,7 +80,7 @@ sudo dnf install gcc make libcurl-devel
 # Debian/Ubuntu
 sudo apt install gcc make libcurl4-openssl-dev
 
-# macOS — curl included, just need CLT
+# macOS - curl included, just need CLT
 xcode-select --install
 ```
 
@@ -93,9 +93,9 @@ make
 ### Build output
 
 ```
-[gitpal] Building WITH libcurl — AI backend enabled
+[gitpal] Building WITH libcurl - AI backend enabled
 # or
-[gitpal] libcurl not found — building WITHOUT AI backend
+[gitpal] libcurl not found - building WITHOUT AI backend
 ```
 
 Either is fine. The only difference is whether AI fallback works.
@@ -123,7 +123,7 @@ gitpal how do i stash my work    # quotes optional
 
 Flags:
 ```sh
-gitpal -v "undo commit"          # verbose — show git commands gitpal runs
+gitpal -v "undo commit"          # verbose - show git commands gitpal runs
 gitpal --local "stash"           # force cheat sheet only, no AI
 gitpal --ai "complex scenario"   # force AI, skip cheat sheet
 gitpal --help
@@ -137,7 +137,7 @@ gitpal
 ```
 
 ```
-gitpal — git companion  (? for help)
+gitpal - git companion  (? for help)
 
 gitpal> i need to commit now
 gitpal> how do i uncommit the last patch
@@ -168,7 +168,7 @@ Arrow keys browse history. Ctrl-A/E jump line start/end. Ctrl-U clears line.
 
 ## Reading the output
 
-**Single unambiguous match — no header:**
+**Single unambiguous match - no header:**
 ```
 ▶ Command
   git reset --soft HEAD~1
@@ -194,14 +194,14 @@ Arrow keys browse history. Ctrl-A/E jump line start/end. Ctrl-U clears line.
 ...
 ```
 
-- **▶ Command** — exact commands to run. Copy and paste.
-- **✦ Explanation** — what it does. Indented lines are variants for slightly different situations.
-- **⚠ Warning** — only shown when the command is irreversible, rewrites history, or overwrites remote.
-- **Match X of N** — only shown when multiple results are returned.
+- **▶ Command** - exact commands to run. Copy and paste.
+- **✦ Explanation** - what it does. Indented lines are variants for slightly different situations.
+- **⚠ Warning** - only shown when the command is irreversible, rewrites history, or overwrites remote.
+- **Match X of N** - only shown when multiple results are returned.
 
 ---
 
-## Verbose mode — learn git while using gitpal
+## Verbose mode - learn git while using gitpal
 
 `-v` / `--verbose` shows the git commands gitpal runs **internally** to read your repo state before answering. The answer is always shown regardless.
 
@@ -211,7 +211,7 @@ gitpal -v "undo commit"
 
 Inside a repo:
 ```
-[verbose mode — gitpal will show the git commands it runs]
+[verbose mode - gitpal will show the git commands it runs]
 
 [reading repo context:]
   [gitpal runs: git branch --show-current]
@@ -226,8 +226,8 @@ Inside a repo:
 
 Outside a repo:
 ```
-[verbose mode — gitpal will show the git commands it runs]
-[not in a git repo — no context commands ran]
+[verbose mode - gitpal will show the git commands it runs]
+[not in a git repo - no context commands ran]
 
 ▶ Command
   git reset --soft HEAD~1
@@ -237,7 +237,7 @@ These are real git plumbing commands you can run yourself. `git status --short` 
 
 ---
 
-## `/ctx` — current repo state
+## `/ctx` - current repo state
 
 ```
 gitpal> /ctx
@@ -251,13 +251,13 @@ gitpal> /ctx
     441fabc add login page
 ```
 
-Status codes explained inline: `M` = modified, `??` = untracked, `UU` = merge conflict, `A` = new file staged, `D` = deleted. State shows `[MERGING]` or `[REBASING]` when in progress — gitpal uses this context in every AI query.
+Status codes explained inline: `M` = modified, `??` = untracked, `UU` = merge conflict, `A` = new file staged, `D` = deleted. State shows `[MERGING]` or `[REBASING]` when in progress - gitpal uses this context in every AI query.
 
 ---
 
 ## AI backend setup (optional)
 
-Without an API key, gitpal uses the built-in cheat sheet — covers ~95% of everyday git use. AI is for unusual or multi-step scenarios.
+Without an API key, gitpal uses the built-in cheat sheet - covers ~95% of everyday git use. AI is for unusual or multi-step scenarios.
 
 ### Pick a provider
 
@@ -297,7 +297,7 @@ GITPAL_API_KEY=gsk_...
 GITPAL_MODEL=llama-3.3-70b-versatile
 ```
 
-**Ollama — fully offline:**
+**Ollama - fully offline:**
 ```sh
 # First: install from https://ollama.com then:
 ollama pull qwen2.5-coder:7b   # one-time ~4 GB download
@@ -309,7 +309,7 @@ GITPAL_MODEL=qwen2.5-coder:7b
 
 ### Environment variables
 
-All config keys can be set as env vars — they override the config file:
+All config keys can be set as env vars - they override the config file:
 ```sh
 GITPAL_API_KEY=sk-ant-... gitpal --ai "squash my last 3 commits"
 GITPAL_MODEL=gpt-4o gitpal
@@ -318,7 +318,7 @@ GITPAL_MODEL=gpt-4o gitpal
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `GITPAL_API_URL` | `https://api.anthropic.com/v1/messages` | API endpoint |
-| `GITPAL_API_KEY` | _(none — AI disabled)_ | API key |
+| `GITPAL_API_KEY` | _(none - AI disabled)_ | API key |
 | `GITPAL_MODEL` | `claude-sonnet-4-20250514` | Model name |
 | `GITPAL_AI_THRESH` | `2` | Min local score before auto-fallback to AI |
 | `GITPAL_TIMEOUT` | `60` | curl timeout in seconds |
@@ -336,7 +336,7 @@ gitpal> /config
   Timeout    : 60s
 ```
 
-`/config` always shows values even without a config file — those are compiled-in defaults. The only sign no file exists is `API key: (not set — AI disabled)`. That is normal and not an error.
+`/config` always shows values even without a config file - those are compiled-in defaults. The only sign no file exists is `API key: (not set - AI disabled)`. That is normal and not an error.
 
 ---
 
@@ -406,7 +406,7 @@ recover a deleted branch
 
 ## How the cheat sheet works
 
-The entire reference database is `src/gitref.h` — a static C array compiled directly into the binary. No external files at runtime. `src/lookup.c` scores queries using a 3-tier keyword matcher:
+The entire reference database is `src/gitref.h` - a static C array compiled directly into the binary. No external files at runtime. `src/lookup.c` scores queries using a 3-tier keyword matcher:
 
 1. Full keyword phrase found in query → **+6**
 2. Full query found inside a keyword phrase → **+3**
@@ -425,13 +425,13 @@ python3 tools/tldr_to_gitref.py --dir /tmp/tldr/pages/common/ --update src/gitre
 make clean && make
 ```
 
-This replaces only the `GENERATED BLOCK` in `gitref.h` — hand-written entries above it are untouched.
+This replaces only the `GENERATED BLOCK` in `gitref.h` - hand-written entries above it are untouched.
 
 ---
 
 ## Extending the reference database
 
-Add entries to `src/gitref.h` — no other files need changing. Rebuild with `make`.
+Add entries to `src/gitref.h` - no other files need changing. Rebuild with `make`.
 
 ```c
 {
@@ -444,11 +444,11 @@ Add entries to `src/gitref.h` — no other files need changing. Rebuild with `ma
 ```
 
 **Keyword tuning tips:**
-- Multi-word phrases score more reliably than single words — use `"undo last commit"` not just `"undo"`
+- Multi-word phrases score more reliably than single words - use `"undo last commit"` not just `"undo"`
 - Include natural-language variants: `"i committed to wrong branch"`, `"uncommit"`
 - Include symptom phrasing: `"accidentally pushed"`, `"lost commit after reset"`
 - Up to 7 keywords + NULL per entry (8-slot array limit)
-- Danger warning field: shown in yellow with ⚠ — use for anything irreversible or history-rewriting
+- Danger warning field: shown in yellow with ⚠ - use for anything irreversible or history-rewriting
 
 ---
 
@@ -457,19 +457,19 @@ Add entries to `src/gitref.h` — no other files need changing. Rebuild with `ma
 ```
 gitpal/
   src/
-    main.c      — REPL, one-shot, arg parsing, flag handling
-    lookup.c    — 3-tier fuzzy scorer + full-text search + gap pruning
-    gitref.h    — reference database (~190 entries, compiled into binary)
-    gitctx.c    — git repo context collector via popen
-    ai.c        — libcurl SSE streaming, Anthropic + OpenAI-compatible
-    config.c    — config file (~/.config/gitpal/config) + env var loader
-    display.c   — ANSI output, result formatting, colour detection
-    linedit.c   — minimal line editor (arrow history, no external deps)
-    globals.c   — process-wide flags (g_verbose)
+    main.c      - REPL, one-shot, arg parsing, flag handling
+    lookup.c    - 3-tier fuzzy scorer + full-text search + gap pruning
+    gitref.h    - reference database (~190 entries, compiled into binary)
+    gitctx.c    - git repo context collector via popen
+    ai.c        - libcurl SSE streaming, Anthropic + OpenAI-compatible
+    config.c    - config file (~/.config/gitpal/config) + env var loader
+    display.c   - ANSI output, result formatting, colour detection
+    linedit.c   - minimal line editor (arrow history, no external deps)
+    globals.c   - process-wide flags (g_verbose)
   tools/
-    tldr_to_gitref.py   — converter: tldr-pages → gitref.h C entries
-    tldr/git-pages.md   — bundled tldr git reference (43 subcommands)
-  tests.sh      — 147-test suite: sh tests.sh
+    tldr_to_gitref.py   - converter: tldr-pages → gitref.h C entries
+    tldr/git-pages.md   - bundled tldr git reference (43 subcommands)
+  tests.sh      - 147-test suite: sh tests.sh
   Makefile
   README.md
   .gitignore
@@ -480,7 +480,7 @@ gitpal/
 ## Troubleshooting
 
 **`command not found` after `make install`**
-Add `~/.local/bin` to PATH — see Installation above.
+Add `~/.local/bin` to PATH - see Installation above.
 
 **`AI not available (no API key or curl support)`**
 Either your API key isn't set (check `/config`) or the binary was built without libcurl:
@@ -530,3 +530,6 @@ See [CHANGELOG.md](CHANGELOG.md).
 ## License
 
 MIT - see [LICENSE](LICENSE).
+
+---
+> *The best git command is the one you don't have to remember.*
