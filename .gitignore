@@ -19,3 +19,8 @@ src/*.o
 
 # unused scaffold (safe to delete entirely)
 {src,data}/
+
+# --- Release specifics ---
+release_notes.md
+release.sh
+Release-script-how-to.txt
