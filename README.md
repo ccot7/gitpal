@@ -532,4 +532,10 @@ See [CHANGELOG.md](CHANGELOG.md).
 MIT - see [LICENSE](LICENSE).
 
 ---
+
+## 👤 Author
+**Cadmus of Tyre**  
+GitHub: [@ccot7](https://github.com/ccot7)
+
+---
 > *The best git command is the one you don't have to remember.*
