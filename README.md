@@ -19,7 +19,7 @@ $ gitpal "force push safely"
 
 Works offline by default - built-in reference of ~190 entries compiled into the binary. Falls back to an AI backend when local confidence is low.
 
-Can intentionally use AI on demand, using a flag. **Your live repo context is injected automatically - super handy especially When using AI.** 
+Can intentionally use AI on demand, using a flag. **Your live repo context is injected automatically - super handy especially When using AI, as it permits to ask AI for more in depth assistance tailored to your case.** 
 
 ---
 
