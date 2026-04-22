@@ -17,7 +17,9 @@ $ gitpal "force push safely"
   git push --force-with-lease
 ```
 
-Works offline by default - built-in reference of ~190 entries compiled into the binary. Falls back to an AI backend only when local confidence is low, or on demand.
+Works offline by default - built-in reference of ~190 entries compiled into the binary. Falls back to an AI backend when local confidence is low.
+
+Can intentionally use AI on demand, using a flag. **Your live repo context is injected automatically - super handy especially When using AI.** 
 
 ---
 
