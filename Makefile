@@ -19,7 +19,7 @@ ifeq ($(CURL_LIBS),)
 endif
 
 # Try a compile probe to decide whether curl is actually present
-HAVE_CURL := $(shell echo '\#include <curl/curl.h>\nint main(){return 0;}' > /tmp/_gp_curl_probe.c && \
+HAVE_CURL := $(shell printf '#include <curl/curl.h>\nint main(){return 0;}\n' > /tmp/_gp_curl_probe.c && \
              $(CC) /tmp/_gp_curl_probe.c -o /dev/null $(CURL_CFLAGS) $(CURL_LIBS) 2>/dev/null \
              && echo yes || echo no)
 
